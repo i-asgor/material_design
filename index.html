@@ -13,6 +13,9 @@
         height: 400px;
         width: 400px;
     }
+    .top-menu-gap{
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -21,12 +24,27 @@
   <div class="mdc-top-app-bar__row">
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
       <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
-      <span class="mdc-top-app-bar__title">Page title</span>
+      <span class="mdc-top-app-bar__title">title</span>
     </section>
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">file_download</button>
+      <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Print this page">print</button>
+      <button id="account" class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Bookmark this page">bookmark</button>
+        <div class="mdc-menu-surface--anchor top-menu-gap">
+          <div class="mdc-menu mdc-menu-surface">
+          <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+            <li class="mdc-list-item" role="menuitem">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">A Menu Item</span>
+            </li>
+            <li class="mdc-list-item" role="menuitem">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">Another Menu Item</span>
+            </li>
+          </ul>
+        </div>
+        </div>
+        
     </section>
   </div>
   </header>
@@ -64,7 +82,9 @@
 
 
 <main class="mdc-top-app-bar--fixed-adjust">
-  App content
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut fugiat pariatur suscipit magnam praesentium adipisci necessitatibus eaque, totam unde ad enim magni alias deleniti quo tenetur optio voluptatibus eius incidunt fugit, aperiam officia! Corrupti quasi quis, tenetur totam possimus commodi.</p>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem maxime non consequuntur quia, earum ullam numquam eius perferendis facilis quo culpa quod nobis laboriosam deleniti, iste esse debitis ex. Adipisci sapiente veniam ut placeat inventore, deleniti exercitationem laborum saepe provident eveniet earum numquam non et? Consequatur odio, ab itaque dolorem inventore consequuntur, sapiente suscipit ratione architecto quidem ex distinctio aut pariatur quisquam cupiditate voluptatum quis mollitia quasi, voluptatibus in. Nesciunt obcaecati nemo minima molestiae eius ab in, recusandae minus praesentium ratione porro, mollitia nostrum dolorem quam consectetur non rem delectus optio iusto odio asperiores laboriosam! Saepe quasi possimus quo similique!</p>
 </main>
 
 <script>
@@ -80,6 +100,15 @@
     topAppBar.listen('MDCTopAppBar:nav', () => {
       drawer.open = !drawer.open;
     });
+
+    /* menu button */
+    const menu = mdc.menu.MDCMenu.attachTo(document.querySelector('.mdc-menu'));
+    menu.open = false;
+
+     const accBtn = document.querySelector('#account');
+     accBtn.addEventListener("click",()=>{
+      menu.open = !menu.open;
+     });
    
 </script>
 </body>
